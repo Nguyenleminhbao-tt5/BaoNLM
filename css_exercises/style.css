@@ -1,0 +1,248 @@
+
+.main{
+  --primary-color: #171C22;  
+  --height-container:83%;
+  --height-header:140px;
+  --height-sidebar:340px;
+}
+html {
+    height: 100%;
+}
+ 
+body {
+    height: 100%;
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: "MyCustomFont";
+    src: url("./Vestha Font/Vestha/TTF/Vestha.ttf");
+}  
+
+
+
+.main{
+
+    height: 100%;
+    position: relative;
+
+}
+.conTainer{
+    background-image: url('https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/usdtoreros.com/images/2023/2/27/ANGELO_WS_227.png');
+    background-size: cover;
+    height: var(--height-container);
+    filter: brightness(75%);
+   
+
+}
+.conTainer1{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: var(--height-container);
+
+}
+.header{
+    height: var(--height-header);
+   
+
+}
+.header__title{
+    margin: 0;
+    background-color: var(--primary-color);
+    height: 100%;
+    width: 350px;
+}
+.header__title::after{
+    content: "";
+    width: var(--height-header); 
+    height: var(--height-header); 
+    border-bottom: var(--height-header) solid transparent;
+    border-left: var(--height-header) solid var(--primary-color);
+    margin-left: 349px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.header__title-img{
+    height: 80px;
+    margin-right: 10px;
+}
+.header__title-text{
+    color:white;
+    font-size: 35px;
+    font-weight: 600;
+    font-family: "MyCustomFont", sans-serif;
+    filter: brightness(100%);
+}
+.header__nav{
+    width: calc(100% - 350px);
+    background-color:rgba(228, 212, 212, 0.3);
+    height: 106px;
+    padding-right: 130px;
+}
+.header__nav-list{
+    list-style: none;
+    width: 40%;
+    margin: 0;
+}
+.nav-list__item{
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    filter: brightness(100%);
+    cursor: pointer;
+}
+.active{
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    height: 50px;
+    width: 120px;
+    padding: 12px 0 0 9px;
+}
+.content{
+    position: absolute;
+    top: 250px;
+    left: 100px;
+}
+.sideBar{
+    position: absolute;
+    top: calc((var(--height-container) - var(--height-header))/2 );
+    width: 50px;
+    height: var(--height-sidebar);
+    background-color: var(--primary-color);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    filter: opacity(40%);
+    cursor: pointer;
+    display: block;
+}
+.sideBar:hover{
+    filter: opacity(100%);
+}
+.sideBar__icon-right{
+    margin-top: calc(var(--height-sidebar)/2 - 20px);
+    font-size: 57px;
+    color: rgb(83, 82, 82);
+    margin-left: 5px;
+}
+.sideBar__icon-left{
+    display: none;
+    margin-top: calc(var(--height-sidebar)/2 - 20px);
+    font-size: 57px;
+    color: rgb(83, 82, 82);
+    margin-left: 5px;
+}
+.sideBar:hover .sideBar__icon{
+    color: white;
+}
+
+.content{
+    display: none;
+    animation: flipInX 1s;
+}
+.content__heading{
+    font-size: 58px;
+    font-weight: 600;
+    color: white;
+
+}
+.content__descrip{
+    color: rgb(172, 163, 163);
+    width: 600px;
+    font-size: 19px;
+}
+.content__btn{
+    
+}
+.content__btn-left{
+    background-color: #207DFF;
+    border: none;
+    width: 180px;
+    height: 60px;
+    border-radius: 6px;
+    color: white;
+    font-size: 18px;
+    margin-right: 10px;
+}
+.content__btn-right{
+    background-color: #01BC57;
+    border: none;
+    width: 180px;
+    height: 60px;
+    border-radius: 6px;
+    color: white;
+    font-size: 18px;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    height: calc(100% - var(--height-container));
+}
+.footer__combat{
+    width: 350px;
+}
+.footer__combat-left__img{
+
+    height: 60px;
+    width: 60px;
+}
+.footer__combat-mid{
+    
+}
+.footer__combat-right__img{
+    height: 60px;
+    width: 60px;
+}
+.footer__title-text{
+    color: #5C5F63;
+    font-weight: 600;
+    font-size: 28px;
+}
+.footer__title-descrip{
+  
+    color: #93969B;
+    font-size: 15px;
+}
+.footer__calendar-list{
+    margin: 0 80px;
+}
+.calendar-list__item{
+    color: #FFFEFF;
+}
+.calendar-list__item-num{
+    font-weight: 600;
+    font-size: 40px;
+    animation: fadeOutRight 1s;
+}
+.calendar-list__item-text{
+    color: #696C71;
+    font-size: 14px;
+}
+.coLumn{
+    background-color: #1D2228;
+    height: 100px;
+    width: 2px;
+    border-radius: 1px;
+    margin-left: 42px;
+    margin-right: 14px;
+}
+.footer__btn{
+    background-color: #01BC57;
+    width: 230px;
+    height: 50px;
+    border: none;
+    border-radius: 9px;
+    font-size: 20px;
+    color: white;
+
+}
+.BTN:hover{
+    filter: brightness(80%);
+}
