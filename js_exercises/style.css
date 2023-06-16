@@ -27,11 +27,12 @@ body{
     border-radius: 45px;
     box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
     border: 7px solid #632704;
+    background-color: #57D1E3;
 }
 .borderAround{
     border: 20px solid #57D1E3;
     height: 100%;
-    border-radius: 38px;
+    border-radius: 83px;
     background-color: #C0ECE4;
 }
 .caculator__header{
@@ -99,6 +100,7 @@ body{
     font-size: 32px;
     color: #3164B0;
     cursor: pointer;
+    box-shadow: 0 8px 8px rgb(0 0 0 / 10%);
 
 }
 .caculator__keyboard-btn:hover{
