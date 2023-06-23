@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./style.css">
+    <title>FOTOBOOK</title>
+</head>
+<body>
+    <div class="main">
+        <header class="header fixed-top d-flex align-items-center justify-content-between ">
+            <div class="header__left d-flex align-items-center ">
+                <span class="header__left-logo text-white fw-bold">
+                    Fotobook
+                </span>
+                <input class="header__left-search " placeholder="Search Photo / Album">
+            </div>
+            <div class="header__right d-flex align-items-center ">
+                <div class="header__right-account d-flex align-items-center d-none d-sm-flex ">
+                    <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="headerRightAccount__avatar rounded-circle "/>
+                    <span class="headerRightAccount__name text-white fw-bold">Hieu Nguyen</span>
+                </div>
+                <a href="" class="header__right-logout text-white fw-bold text-decoration-none">Logout </a>
+            </div>
+        </header>
+        <div class="content bg-white">
+            <div class="container-fluid h-100">
+                <div class="row h-100">
+                    <div class="sidebarLeft h-100 col-xl-2 col-md-3 d-none d-md-block ">
+                        <ul class="sidebarLeft__list list-unstyled d-flex align-items-center flex-column mt-4">
+                            <li class="sidebarLeft__list-item float-start ">
+                                <a class="sidebarLeftListItem__link active text-decoration-none fw-bold">Feeds</a>
+                            </li>
+                            <li class="sidebarLeft__list-item float-start">
+                                <a class="sidebarLeftListItem__link text-decoration-none fw-bold">My Photos</a>
+                            </li>
+                            <li class="sidebarLeft__list-item float-start">
+                                <a class="sidebarLeftListItem__link text-decoration-none fw-bold">My Albums</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contentFoto col-xl-2 col-xl-8 col-md-9">
+                        <div class="contentFoto__heading mb-2 d-flex justify-content-center">
+                            <div class="btn-group contentFoto__heading-group " role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                <label class="btn btn-outline-primary btn-Photo" for="btnradio1">Photo</label>
+                              
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                <label class="btn btn-outline-primary btn-Album" for="btnradio2">Album</label>
+                              </div>
+                        </div>
+                        <div class="row contentFoto__body d-flex justify-content-center">
+                            <div class="cardImg col-xxl-6 col-12" data-bs-target="#myModal" data-bs-toggle="modal">
+                                <div class="cardImgBorder ">
+                                    <div class="row h-100 w-100 no-margin">
+                                        <div class="cardImg__left h-100 m-0 p-0 col-5">
+                                            <img class="cardIMg__left-img h-100 w-100" alt="" src="https://i.pinimg.com/originals/b7/0c/ab/b70cabd6297232640e835a0af16e0179.gif"/>
+                                        </div>
+                                        <div class="cardImg__right ps-4 position-relative col-7">
+                                            <div class="cardImg__right-account my-2">
+                                                <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                                                <span class="cardImg__right-account__name ms-2 fw-bold">Hieu Nguyen</span>
+                                            </div>
+                                            <div class="cardImg__right-heading text-dark fw-bold ">
+                                                Hello World 1!!!!
+                                            </div>
+                                            <div class="cardImg__right-text mt-2">
+                                                I’ve been having a problem with my computer. I know you’re an engineer so I thought you might be able to help me.
+                                            </div>
+                                            <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
+                                                <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
+                                                    <i class="heart-icon fa-solid fa-heart"></i>
+                                                </label>
+                                                <input id="checkHeart" type="checkbox" class="d-none"/>
+                                                <span class="cardImg__right-footer__time">9:28AM 20/06/2023</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardImg col-xxl-6 col-12" data-bs-target="#myModal" data-bs-toggle="modal">
+                                <div class="cardImgBorder">
+                                    <div class="row h-100 w-100 no-margin">
+                                        <div class="cardImg__left h-100 m-0 p-0 col-5">
+                                            <img class="cardIMg__left-img h-100 w-100" alt="" src="https://i.pinimg.com/originals/09/15/97/0915975c4c5e234db0e996daae898f87.gif"/>
+                                        </div>
+                                        <div class="cardImg__right ps-4 position-relative col-7">
+                                            <div class="cardImg__right-account my-2">
+                                                <img  src="https://i.pinimg.com/originals/09/15/97/0915975c4c5e234db0e996daae898f87.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                                                <span class="cardImg__right-account__name ms-2 fw-bold">Hieu Nguyen</span>
+                                            </div>
+                                            <div class="cardImg__right-heading text-dark fw-bold ">
+                                                Hello World 2!!!!
+                                            </div>
+                                            <div class="cardImg__right-text mt-2">
+                                                I’ve been having a problem with my computer. I know you’re an engineer so I thought you might be able to help me.
+                                            </div>
+                                            <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
+                                                <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
+                                                    <i class="heart-icon fa-solid fa-heart"></i>
+                                                </label>
+                                                <input id="checkHeart" type="checkbox" class="d-none"/>
+                                                <span class="cardImg__right-footer__time">9:28AM 20/06/2023</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardImg col-xxl-6 col-12" data-bs-target="#myModal" data-bs-toggle="modal">
+                                <div class="cardImgBorder">
+                                    <div class="row h-100 w-100 no-margin">
+                                        <div class="cardImg__left h-100 m-0 p-0 col-5">
+                                            <img class="cardIMg__left-img h-100 w-100" alt="" src="https://i.pinimg.com/originals/5e/c0/76/5ec076ba64c5a1017b5b35dbc8d35b4b.gif"/>
+                                        </div>
+                                        <div class="cardImg__right ps-4 position-relative col-7">
+                                            <div class="cardImg__right-account my-2">
+                                                <img  src="https://i.pinimg.com/originals/5e/c0/76/5ec076ba64c5a1017b5b35dbc8d35b4b.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                                                <span class="cardImg__right-account__name ms-2 fw-bold">Hieu Nguyen</span>
+                                            </div>
+                                            <div class="cardImg__right-heading text-dark fw-bold ">
+                                                Hello World 3!!!!
+                                            </div>
+                                            <div class="cardImg__right-text mt-2">
+                                                I’ve been having a problem with my computer. I know you’re an engineer so I thought you might be able to help me.
+                                            </div>
+                                            <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
+                                                <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
+                                                    <i class="heart-icon fa-solid fa-heart"></i>
+                                                </label>
+                                                <input id="checkHeart" type="checkbox" class="d-none"/>
+                                                <span class="cardImg__right-footer__time">9:28AM 20/06/2023</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardImg col-xxl-6 col-12" data-bs-target="#myModal" data-bs-toggle="modal">
+                                <div class="cardImgBorder">
+                                    <div class="row h-100 w-100 no-margin">
+                                        <div class="cardImg__left  h-100 m-0 p-0 col-5">
+                                            <img class="cardIMg__left-img h-100 w-100" alt="" src="https://i.pinimg.com/564x/c7/87/de/c787de5392acb6632ac915398b3a3e12.jpg"/>
+                                        </div>
+                                        <div class="cardImg__right ps-4 position-relative col-7">
+                                            <div class="cardImg__right-account my-2">
+                                                <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                                                <span class="cardImg__right-account__name ms-2 fw-bold">Hieu Nguyen</span>
+                                            </div>
+                                            <div class="cardImg__right-heading text-dark fw-bold ">
+                                                Hello World 4!!!!
+                                            </div>
+                                            <div class="cardImg__right-text mt-2">
+                                                I’ve been having a problem with my computer. I know you’re an engineer so I thought you might be able to help me.
+                                            </div>
+                                            <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
+                                                <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
+                                                    <i class="heart-icon fa-solid fa-heart"></i>
+                                                </label>
+                                                <input id="checkHeart" type="checkbox" class="d-none"/>
+                                                <span class="cardImg__right-footer__time">9:28AM 20/06/2023</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="contentFoto__footer mt-3 d-flex justify-content-center">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                  <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                  </li>
+                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                  <li class="page-item" aria-current="page">
+                                    <a class="page-link" href="#">2</a>
+                                  </li>
+                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                  <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                  </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="sidebarRight h-100 d-none d-xl-block col-xl-2"></div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body__img">
+                    <img src="" alt="" id="modalBodyImg__img" />
+                </div>
+                <p id="modal_body__descrip">
+                    hi
+                </p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <script src="./feeds.js">  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
