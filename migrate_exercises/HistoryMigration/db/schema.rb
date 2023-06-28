@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_075854) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_28_135610) do
   create_table "albums", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -19,6 +19,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_075854) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_albums_on_user_id"
+  end
+
+  create_table "follwers", force: :cascade do |t|
+    t.integer "follwer_id"
+    t.integer "be_follower_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "photos", force: :cascade do |t|
@@ -49,10 +56,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_075854) do
     t.datetime "DoB"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "manage_id"
   end
 
   add_foreign_key "albums", "users"
+  add_foreign_key "follwers", "users", column: "be_follower_id"
+  add_foreign_key "follwers", "users", column: "follwer_id"
   add_foreign_key "photos", "albums"
   add_foreign_key "user_albums", "photos"
   add_foreign_key "user_albums", "users"
+  add_foreign_key "users", "users", column: "manage_id"
 end
