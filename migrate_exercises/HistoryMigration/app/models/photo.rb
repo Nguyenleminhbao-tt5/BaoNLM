@@ -8,4 +8,6 @@ class Photo < ApplicationRecord
 
 
     belongs_to :users
+    has_many :photo_albums
+    has_many :albums, through :photo_albums
 end
