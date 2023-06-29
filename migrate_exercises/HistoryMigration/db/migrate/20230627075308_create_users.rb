@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :type
       t.string :fullname
       t.decimal :age
-      t.string :sex
+      t.string :sex  , default: 'female'
       t.datetime :DoB
 
       t.timestamps
