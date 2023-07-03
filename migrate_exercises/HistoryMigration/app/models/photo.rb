@@ -7,7 +7,7 @@ class Photo < ApplicationRecord
     validates :status, :source,  presence: true
 
 
-    belongs_to :users
+    belongs_to :user
     has_many :photo_albums
     has_many :albums, through :photo_albums
 end
