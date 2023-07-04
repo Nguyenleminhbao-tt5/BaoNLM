@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_04_025840) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_04_094027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,8 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_025840) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.integer "follwer_id"
-    t.integer "be_follower_id"
+    t.integer "follower_id"
+    t.integer "following_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_025840) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "type"
+    t.string "user_type"
     t.string "fullname"
     t.decimal "age"
     t.string "sex", default: "female"
@@ -60,13 +60,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_025840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "manage_id"
-    t.string "email"
-    t.string "password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "albums", "users"
-  add_foreign_key "follows", "users", column: "be_follower_id"
-  add_foreign_key "follows", "users", column: "follwer_id"
+  add_foreign_key "follows", "users", column: "follower_id"
+  add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "photo_albums", "albums"
   add_foreign_key "photo_albums", "photos"
   add_foreign_key "photos", "users"
