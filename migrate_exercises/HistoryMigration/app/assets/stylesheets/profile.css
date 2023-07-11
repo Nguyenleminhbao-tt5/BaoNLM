@@ -1,0 +1,105 @@
+.contentProfile{
+    margin: 25px 0 10px 0;
+    border-radius: 20px;
+    background-color: white;
+   
+}
+.contentProfile__top{
+    padding: 50px 40px 40px 40px;
+  
+}
+.contentProfile__bot{
+    padding: 0 10px;
+}
+
+/*=======================NEW-PHOTO=============================*/
+
+.newPhoto{
+    padding: 20px;
+}
+.newPhoto__heading-back{
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    font-weight: 600;
+    max-width: 80px;
+}
+.newPhoto__arrow{
+    height: 2px;
+    background-color: rgb(120, 125, 129);
+    margin: 20px 0;
+}
+
+textarea {
+    resize: none;
+
+}
+.newPhoto__submit{
+    width: 70px;
+}
+.newPhoto_file{
+    background-color: rgb(225, 230, 235);
+    height: 200px;
+    width: 200px;
+    border: 2px dashed rgb(133, 129, 129);
+    cursor: pointer;
+}
+.newPhoto_file-icon{
+    font-size: 40px;
+    color: rgb(133, 129, 129);
+}
+.newPhoto__delete{
+    margin-left: 40px;
+}
+
+/*=======================EDIT-PROFILE=============================*/
+
+.editProfile{
+    padding: 20px;
+    
+}
+.editProfile__img{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    
+}
+.editProfile__img-img{
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+}
+.editProfile__img-change{
+    position: absolute;
+    bottom: 15px;
+    left: 70px;
+    border: none;
+    display: none;
+    background-color: rgb(207, 204, 199);
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    font-weight: 600;
+    max-width: 80px;
+}
+.editProfile__img:hover .editProfile__img-change{
+    background-color: aliceblue;
+    display: block;
+}
+
+
+
+.editProfile__infor,.editProfile__password{
+    width: 570px;
+    margin: 40px;
+}
+.editProfile__infor-heading,.editProfile__password-heading{
+    color: var(--primary-color);
+    text-align: center;
+}
+.col-form-label{
+    font-weight: 600;
+}
