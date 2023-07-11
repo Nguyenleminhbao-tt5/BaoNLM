@@ -1,0 +1,38 @@
+<div class="contentProfile col-xl-2 col-xl-8 col-md-9">
+    <form class="newPhoto w-100 h-100 d-flex flex-column justify-content-start">
+        <h2 class="newPhoto__heading">New Photo</h2>
+        <span class="newPhoto__arrow w-100 d-block"></span>
+        <div class="newPhoto__input d-flex">
+            <div class="row w-100">
+                <div class="col-6">
+                    <div class="newPhoto__input-1 d-flex flex-column">
+                        <div class="newPhotoInput1__title d-flex flex-column my-3">
+                            <label class="newPhotoInput1__title-heading mb-2">Title</label>
+                            <input type='text' class="newPhotoInput1__title-content form-control" placeholder="Photo Title"/>
+                        </div>
+
+                        <div class="newPhotoInput1__mode d-flex flex-column my-3">
+                            <label class="newPhotoInput1__mode-heading mb-2">Sharing mode</label>
+                            <select class="newPhotoInput1__mode-content form-select">
+                                <option value="0">Public</option>
+                                <option value="1">Private</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="newPhoto__input-2 d-flex flex-column my-3">
+                        <label class="newPhotoInput2__descrip-heading mb-2">Description</label>
+                        <textarea class="newPhotoInput2__descrip-content form-control" placeholder="Photo Description" rows="5"></textarea>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <label class="newPhoto_file d-flex justify-content-center align-items-center my-4" for="newPhoto_inputPhoto">
+            <i class="newPhoto_file-icon fa-regular fa-image"></i>
+        </label>
+        <input type="file" class="d-none" id="newPhoto_inputPhoto" />
+        <input type="submit" class="btn newPhoto__submit btn-success" value="Save" />
+    </form>
+</div>

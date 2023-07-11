@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Final App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "shared", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "components", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "login", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "profile", "data-turbo-track": "reload" %>
+   
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>    
+    <div class="main">
+      <% if user_signed_in? %>
+        <%= render 'shared/header'%>
+      <%else%>
+        <%= render 'shared/header_authen'%>
+      <%end%>
+
+      <div class="content bg-white">
+        <div class="container-fluid h-100">
+          <div class="row h-100">
+            <% if (params[:controller] == 'devise/sessions' or params[:controller] == 'devise/registrations' ) && params[:action] == 'new'  %>
+                <%= yield %>
+            <% else %>
+              <div class="sidebarLeft h-100 col-xl-2 col-md-3 d-none d-md-block ">
+                <ul class="sidebarLeft__list list-unstyled d-flex align-items-center flex-column justify-content-start mt-4">
+                    <li class="sidebarLeft__list-item float-start ">
+                        <a class="sidebarLeftListItem__link active text-decoration-none fw-bold">Feeds</a>
+                    </li>
+                    <li class="sidebarLeft__list-item float-start">
+                        <a class="sidebarLeftListItem__link text-decoration-none fw-bold">Discover</a>
+                    </li>
+                </ul>
+              </div>
+
+              <%= yield %>
+
+              <div class="sidebarRight h-100 d-none d-xl-block col-xl-2"></div>
+            <%end%>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+
+
+     <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body__img">
+                    <img src="" alt="" id="modalBodyImg__img" class="w-100 h-100" />
+                </div>
+                <p id="modal_body__descrip">
+                    hi
+                </p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

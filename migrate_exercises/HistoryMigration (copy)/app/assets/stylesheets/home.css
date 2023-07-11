@@ -1,0 +1,111 @@
+
+.contentFoto{
+    margin: 25px 0 10px 0;
+    border-radius: 20px;
+    background-color: white;
+}
+.contentFoto__heading{
+    margin-top: 30px;
+}
+.contentFoto__heading-group{
+    border: none !important;
+}
+.btn-Photo,.btn-Album{
+    font-weight: 600 !important;
+}
+
+.contentFoto__body{
+    padding: 0 20px;
+    max-height: 800px;
+}
+.contentFoto__footer{
+
+}
+.cardImg{
+    background-color: var(--card-color);
+    padding: 10px;
+    border-radius: 10px;
+    height: 330px;
+    width: 540px; 
+    margin: 20px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    top: 0;
+    transition: top ease 0.1s ;
+    cursor: pointer;
+}
+.cardImg:hover{
+    top:-3px;
+  
+}
+.cardImgBorder{
+    /* border: 1px solid black; */
+    height: 100%;
+}
+.cardImg__left{
+   
+}
+.cardIMg__left-img{
+    border-radius: 10px;
+    box-shadow: 2px 5px 12px rgba(0, 0, 0, 0.3);
+}
+.cardImg__right{
+   
+}
+.cardImg__right-account__avatar{
+
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary-color);
+}
+.cardImg__right-account__name {
+    color: var(--primary-color);
+    font-size: 18px;
+}
+.cardImg__right-heading{
+    font-size: 20px;
+}
+.cardImg__right-text{
+    color: var(--text-card-color);
+}
+.cardImg__right-footer{
+    width: calc(100% - 25px);
+}
+.cardImg__right-footer__btn{
+    cursor: pointer;
+    font-size: 19px;
+    color: var(--primary-color);
+   
+}
+.cardImg__right-footer__time{
+    color:#4d4a4a;
+}
+#checkHeart:checked ~ .heart-icon{
+    color: var(--primary-color);
+}
+
+
+
+
+.sidebarLeft{
+
+    
+}
+
+.sidebarLeft__list-item
+{
+    margin: 10px 0 ;
+    cursor: pointer;
+    font-size: 18px;
+}
+.sidebarLeftListItem__link{
+    color: var(--text-sidebar-color);
+   
+}
+.active{
+    color: var(--text-acive-color);
+}
+
+.sideBarRight{
+
+}

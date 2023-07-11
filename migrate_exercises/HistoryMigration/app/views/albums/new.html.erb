@@ -1,0 +1,38 @@
+<div class="contentProfile col-xl-2 col-xl-8 col-md-9">
+    <%= form_with model: @album, url: albums_path, method: :post,class:'newPhoto w-100 h-100 d-flex flex-column justify-content-start', local: true do |f| %>
+        <div class="newPhoto__heading d-flex align-items-center justify-content-between">
+            <h2 class="newPhoto__heading-text">New Album</h2>
+            <%= link_to 'Back', profile_albums_path(current_user), class: 'btn newPhoto__heading-back' %>
+        </div>
+        <span class="newPhoto__arrow w-100 d-block"></span>
+        <div class="newPhoto__input d-flex">
+            <div class="row w-100">
+                <div class="col-6">
+                    <div class="newPhoto__input-1 d-flex flex-column">
+                        <div class="newPhotoInput1__title d-flex flex-column my-3">
+                            <label class="newPhotoInput1__title-heading mb-2">Title</label>
+                            <%= f.text_field :title, class:'newPhotoInput1__title-content form-control', placeholder: 'Album Title' %>
+                        </div>
+
+                        <div class="newPhotoInput1__mode d-flex flex-column my-3">
+                            <label class="newPhotoInput1__mode-heading mb-2">Sharing mode</label>
+                            <%= f.select :mode, options_for_select([["Public", 'Public'], ["Private", 'Private']]),{}, class: 'newPhotoInput1__mode-content form-select' %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="newPhoto__input-2 d-flex flex-column my-3">
+                        <label class="newPhotoInput2__descrip-heading mb-2">Description</label>
+                        <%= f.text_area :description, class: 'newPhotoInput2__descrip-content form-control', placeholder:'Album Description', rows: 5  %>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <label class="newPhoto_file d-flex justify-content-center align-items-center my-4" for="newAlbum_inputPhoto">
+                <i class="newPhoto_file-icon fa-regular fa-image"></i>
+        </label>
+        <%= f.file_field :list_image, multiple: true, class: 'd-none', id: 'newAlbum_inputPhoto' %>
+        <%= f.submit 'Save', class: 'btn newPhoto__submit btn-success' %>
+    <%end%>
+</div>

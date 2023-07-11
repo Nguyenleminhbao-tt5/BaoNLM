@@ -1,0 +1,15 @@
+<div class="col-3">
+    <div class="cardAlbumProfile">
+    <div class="cardAlbumProfile__img w-100 position-relative">
+        <%= image_tag(album.list_image[0].url,class:'cardAlbumProfile__img-img w-100 h-100') %>
+        <%= link_to 'edit', edit_album_path(album), class:'cardImgProfile__editBtn text-decoration-none' %>
+
+        
+        <div class="cardAlbumProfile__img-amount d-flex flex-column align-items-center rounded-circle justify-content-center">
+            <span><%= album.list_image.size %></span>
+            <span>PHOTOS</span>
+        </div>
+    </div>
+    <span class="cardAlbumProfile__title"><%= album.title %></span>
+</div>
+</div>

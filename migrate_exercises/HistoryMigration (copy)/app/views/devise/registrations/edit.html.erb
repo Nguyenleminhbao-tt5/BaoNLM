@@ -1,0 +1,132 @@
+
+<!--<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password",autofocus: true %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+
+<%= link_to "Back", :back %>-->
+
+
+<div class="contentProfile col-xl-2 col-xl-8 col-md-9">
+
+    <div class="editProfile w-100 h-100 d-flex flex-column justify-content-start">
+        <div class="newPhoto__heading d-flex align-items-center justify-content-between">
+            <h2 class="newPhoto__heading-text">Edit User Profile</h2>
+            <%= link_to 'Back', profile_path(current_user) , class: 'btn newPhoto__heading-back text-decoration-none' %>
+        </div>
+        
+        <span class="newPhoto__arrow w-100 d-block"></span>
+        <div class="d-flex flex-column justify-content-center align-items-center w-100 ">
+            <div class="editProfile__img d-flex ">
+                <img class="editProfile__img-img w-100 h-100" src="https://i.pinimg.com/564x/a6/de/32/a6de325e4daf6807b8dbae3a5557ff3c.jpg" alt="" />
+                <button class="editProfile__img-change"> Change </button>
+            </div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"editProfile__infor" }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+                <h5 class="editProfile__infor-heading">Basic Information</h5>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-4 col-form-label">First Name</label>
+                        <div class="col-sm-8">
+                            <%= f.text_field :fname,class:"form-control", placeholder:"First Name"%>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-4 col-form-label">Last Name</label>
+                        <div class="col-sm-8">
+                            <%= f.text_field :lname,class:"form-control", placeholder:"Last Name"%>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-4 col-form-label">Email</label>
+                        <div class="col-sm-8">
+                            <%= f.email_field :email,class:"form-control", placeholder:"someone@gmail.com"%>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3 row">
+                      <label for="staticEmail" class="col-sm-4 col-form-label">Current Password</label>
+                      <div class="col-sm-8">
+                          <%= f.password_field :current_password,class:'form-control', autocomplete: "current-password" %>
+                      </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-4 col-form-label">New Password</label>
+                        <div class="col-sm-8">
+                            <%= f.password_field :password, class:'form-control',autocomplete: "new-password",autofocus: true %>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-4 col-form-label">Password Confirmation</label>
+                        <div class="col-sm-8">
+                            <%= f.password_field :password_confirmation, class:'form-control', autocomplete: "current-password" %>
+                        </div>
+                    </div>
+
+                    <%= f.submit "Save", class:'btn newPhoto__submit btn-success' %>
+            <%end%>
+
+            <!--<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"editProfile__password" }) do |f| %>
+                <h5 class="editProfile__password-heading">Password</h5>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-4 col-form-label">Current Password</label>
+                    <div class="col-sm-8">
+                        <%= f.password_field :current_password,class:'form-control', autocomplete: "current-password" %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-4 col-form-label">New Password</label>
+                    <div class="col-sm-8">
+                        <%= f.password_field :password, class:'form-control',autocomplete: "new-password",autofocus: true %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-4 col-form-label">Password Confirmation</label>
+                    <div class="col-sm-8">
+                        <%= f.password_field :password_confirmation, class:'form-control', autocomplete: "current-password" %>
+                    </div>
+                </div>
+
+                <%= f.submit "Save", class:'btn newPhoto__submit btn-success' %>
+            <%end%>-->
+        </div>
+        
+        
+        
+    </div>
+</div>

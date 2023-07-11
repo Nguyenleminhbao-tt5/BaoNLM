@@ -1,0 +1,43 @@
+
+<div class="d-flex align-items-center">
+    <div class="contentProfile__top-avatar">
+        <img class="profileTopAvatar__img w-100 h-100 rounded-circle" src="https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg" alt=""/>
+    </div>
+    <div class="contentProfile__top-infor w-75 ms-4 d-flex flex-column justify-content-start position-relative">
+        <% if current_user == @infors[0] %>
+            <%= link_to 'Edit Profile', profile_edit_path, class:'profileTopInfor__edit text-decoration-none'%>
+        <%else%>
+            <span class="profileTopInfor__status">following</span>
+        <%end%>
+        <h1 class="profileTopInfor__name mt-3"><%= @infors[0].fullname %></h1>
+        <div class="profileTopInfor__list d-flex list-unstyled align-items-center">
+            <%= link_to profile_path(@infors[0]) , class:'profileTopInfor__list-item ele-active text-decoration-none' do%>
+                <span class="profileTopInfor__list-item__amount"><%= @infors[1] %></span>
+                <span class="profileTopInfor__list-item__cate">PHOTOS</span>
+            <%end%>
+            <span class="arrow">  </span>
+            <%= link_to profile_albums_path(@infors[0]) , class:'profileTopInfor__list-item text-decoration-none' do%>
+                <span class="profileTopInfor__list-item__amount"><%= @infors[2] %></span>
+                <span class="profileTopInfor__list-item__cate">ALBUMS</span>
+            <%end%>
+            <span class="arrow"> </span>
+            <%= link_to profile_followings_path(@infors[0]) , class:'profileTopInfor__list-item text-decoration-none' do%>
+                <span class="profileTopInfor__list-item__amount"><%= @infors[3] %></span>
+                <span class="profileTopInfor__list-item__cate">FOLLOWINGS</span>
+            <%end%>
+            <span class="arrow">  </span>
+            <%= link_to profile_followers_path(@infors[0]), class:'profileTopInfor__list-item text-decoration-none' do%>
+                <span class="profileTopInfor__list-item__amount"><%= @infors[4] %></span>
+                <span class="profileTopInfor__list-item__cate">FOLLOWERS</span>
+            <%end%>
+        </div>
+    </div>
+</div>
+<div class="w-100 d-flex justify-content-end">
+    <% if current_user==@infors[0] && params[:action] == 'tab_photos'%>
+        <%= link_to 'Add Photo', new_photo_path, class: 'contentProfile__top-new text-decoration-none'%>
+    <%elsif current_user==@infors[0] && params[:action] == 'tab_albums'%>
+        <%= link_to 'Add Album', new_album_path, class: 'contentProfile__top-new text-decoration-none'%>
+    <%end%>
+</div>
+

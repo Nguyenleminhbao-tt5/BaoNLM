@@ -1,0 +1,28 @@
+<div class="col-3">
+    <div class="cardFollow d-flex align-items-center justify-content-center flex-column  ">
+        <%= link_to profile_path(user.obj) do %>
+            <img class="cardFollow__img rounded-circle" src="https://i.pinimg.com/564x/c5/f0/c7/c5f0c7ba693285f4df4b1330054a5894.jpg" alt=""/>
+        <%end%>
+        <span class="cardFollow__name my-2 fw-bold"><%= user.name %></span>
+        <div class="cardFollow__infor d-flex align-items-center justify-content-around w-100">
+            <div class="cardFollow__infor-photo d-flex flex-column">
+                <span class="cardFollowInfor__amount text-center"><%= user.count_photo %></span>
+                <span class="cardFollowInfor__cate">PHOTOS</span>
+            </div>
+            <div class="cardFollow__infor-album d-flex flex-column">
+                <span class="cardFollowInfor__amount text-center"><%= user.count_album %></span>
+                <span class="cardFollowInfor__cate">ALBUMS</span>
+            </div>
+        </div>
+        <% if params[:action] == 'tab_followings' && current_user ==  @user %>
+            <%= link_to 'unfollow', follow_path(user.obj), data: {turbo_method: :delete} , class: 'cardFollow__btn-follow text-center' %>
+        <% elsif user.is_follow %>
+            <button class="cardFollow__btn-following">following</button>
+        <%else%>
+            <%= button_to 'follow', follows_path(user.obj),method: :post , class: 'cardFollow__btn-follow  text-center' %>
+        <%end%>
+    </div>
+</div>
+
+
+

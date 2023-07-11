@@ -1,0 +1,11 @@
+<div class="col-3">
+    <div class="cardImgProfile">
+        <div class ="position-relative">
+            <%= image_tag(photo.source.url, class:'cardImgProfile__img w-100')  %>
+            <%= link_to 'edit', edit_photo_path(photo), class:'cardImgProfile__editBtn text-decoration-none' %>
+        </div>
+        
+        <span class="cardImgProfile__title"><%= photo.title %></span>
+        
+    </div>
+</div>

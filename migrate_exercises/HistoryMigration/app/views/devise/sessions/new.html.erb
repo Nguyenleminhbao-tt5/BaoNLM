@@ -1,0 +1,40 @@
+
+<div class="h-100 d-flex align-items-center justify-content-center">
+  <div class="login d-flex align-items-center flex-column">
+    <span class="login__heading mb-2"> Fotobook Login
+    </span>
+    <div class="login__social d-flex justify-content-around w-100 my-3">
+        <%= image_tag(asset_path('google.png'),class:'login__social-fb social-icon') %>
+        <%= image_tag(asset_path('facebook.png'),class:'login__social-fb social-icon') %>
+        <%= image_tag(asset_path('twitter.png'),class:'login__social-fb social-icon') %>
+    </div>
+    <div class="login__content w-100">
+      <%= image_tag(asset_path('user.png'),class:'login__content-img rounded-circle m-auto d-block my-5') %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class:'d-flex align-items-center flex-column'}) do |f| %>
+        <div class="form-outline my-1 w-85">
+          <%= f.email_field :email, autofocus: true,class:'form-control',placeholder: 'Email', autocomplete: "email" %>
+        </div>
+
+        <div class="form-outline my-1 w-85">
+          <%= f.password_field :password,class:"form-control",placeholder: 'Password', autocomplete: "current-password" %>
+        </div>
+
+
+        <div class="actions">
+          <%= f.submit "Log in", class:'btn btn-primary btn-login border-0 mt-3' %>
+        </div>
+
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <%= link_to "Forgot password?", new_password_path(resource_name),class: 'd-block m-auto my-3 text-decoration-none' %><br />
+        <% end %>
+
+
+      <% end %>
+    </div>
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "Create an account", signup_path, class:'text-decoration-none mt-4' %><br />
+    <% end %>
+  </div>
+</div>
+
+<!--<%= render "devise/shared/links" %>-->

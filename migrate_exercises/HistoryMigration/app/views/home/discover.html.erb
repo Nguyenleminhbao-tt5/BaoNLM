@@ -1,0 +1,38 @@
+
+<div class="contentFoto col-xl-2 col-xl-8 col-md-9">
+    <div class="contentFoto__heading mb-2 d-flex justify-content-center">
+        <div class="btn-group contentFoto__heading-group " role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-primary btn-Photo" for="btnradio1">
+                <%= link_to 'Photo', root_path , class: 'text-decoration-none'%>
+            </label>
+            
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-primary btn-Album" for="btnradio2">
+                 <%= link_to 'Album', home_album_path , class: 'text-decoration-none'%>
+            </label>
+        </div>
+    </div>
+    <div class="row contentFoto__body d-flex justify-content-center">
+        
+
+
+    </div>
+    <div class="contentFoto__footer mt-3 d-flex justify-content-center">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item" aria-current="page">
+                <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

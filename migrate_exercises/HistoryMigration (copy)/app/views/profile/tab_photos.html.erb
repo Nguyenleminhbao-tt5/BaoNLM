@@ -1,0 +1,12 @@
+<div class="contentProfile col-xl-2 col-xl-8 col-md-9">
+    <div class="contentProfile__top ">
+        <%=render "shared/personal_profile"%>
+    </div>
+    <div class="contentProfile__bot">
+        <div class="row">
+            <% @list_photo.each do |ele| %>
+                <%= render "components/card_img_profile", photo: ele%>
+            <%end%>
+        </div>
+    </div>
+</div>

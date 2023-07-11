@@ -1,0 +1,157 @@
+
+<div class="contentFoto col-xl-2 col-xl-8 col-md-9">
+    <div class="contentFoto__heading mb-2 d-flex justify-content-center">
+        <div class="btn-group contentFoto__heading-group " role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-primary btn-Photo" for="btnradio1">
+                <%= link_to 'Photo', root_path , class: 'text-decoration-none'%>
+            </label>
+            
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-primary btn-Album" for="btnradio2">
+                 <%= link_to 'Album', home_album_path , class: 'text-decoration-none'%>
+            </label>
+        </div>
+    </div>
+    <div class="row contentFoto__body d-flex justify-content-center">
+        <div class="cardImg col-xxl-6 col-12" >
+            <div class="cardImgBorder ">
+                <div class="row h-100 w-100 no-margin">
+                    <div class="cardImg__left h-100 m-0 p-0 col-5" data-bs-target="#myModal" data-bs-toggle="modal" >
+                        <img class="cardIMg__left-img h-100 w-100" alt="" src="https://i.pinimg.com/originals/b7/0c/ab/b70cabd6297232640e835a0af16e0179.gif"/>
+                    </div>
+                    <div class="cardImg__right ps-4 position-relative col-7">
+                        <div class="cardImg__right-account my-2">
+                            <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                            <span class="cardImg__right-account__name ms-2 fw-bold">Hieu Nguyen</span>
+                        </div>
+                        <div class="cardImg__right-heading text-dark fw-bold ">
+                            Hello World 1!!!!
+                        </div>
+                        <div class="cardImg__right-text mt-2">
+                            I’ve been having a problem with my computer. I know you’re an engineer so I thought you might be able to help me.
+                        </div>
+                        <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
+                            <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
+                                <i class="heart-icon fa-solid fa-heart"></i>
+                                <span class="heart-amount">100</span>
+                            </label>
+                            <input id="checkHeart" type="checkbox" class="d-none"/>
+                            <span class="cardImg__right-footer__time">9:28AM 20/06/2023</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cardImg col-xxl-6 col-12" >
+            <div class="cardImgBorder">
+                <div class="row h-100 w-100 no-margin">
+                    <div class="cardImg__left h-100 m-0 p-0 col-5" data-bs-target="#myModal" data-bs-toggle="modal">
+                        <img class="cardIMg__left-img h-100 w-100" alt="" src="https://i.pinimg.com/originals/09/15/97/0915975c4c5e234db0e996daae898f87.gif"/>
+                    </div>
+                    <div class="cardImg__right ps-4 position-relative col-7">
+                        <div class="cardImg__right-account my-2">
+                            <img  src="https://i.pinimg.com/originals/09/15/97/0915975c4c5e234db0e996daae898f87.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                            <span class="cardImg__right-account__name ms-2 fw-bold">Hieu Nguyen</span>
+                        </div>
+                        <div class="cardImg__right-heading text-dark fw-bold ">
+                            Hello World 2!!!!
+                        </div>
+                        <div class="cardImg__right-text mt-2">
+                            I’ve been having a problem with my computer. I know you’re an engineer so I thought you might be able to help me.
+                        </div>
+                        <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
+                            <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
+                                <i class="heart-icon fa-solid fa-heart"></i>
+                                <span class="heart-amount">100</span>
+                            </label>
+                            <input id="checkHeart" type="checkbox" class="d-none"/>
+                            <span class="cardImg__right-footer__time">9:28AM 20/06/2023</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cardImg col-xxl-6 col-12" >
+            <div class="cardImgBorder">
+                <div class="row h-100 w-100 no-margin">
+                    <div class="cardImg__left h-100 m-0 p-0 col-5" data-bs-target="#myModal" data-bs-toggle="modal">
+                        <img class="cardIMg__left-img h-100 w-100" alt="" src="https://i.pinimg.com/originals/5e/c0/76/5ec076ba64c5a1017b5b35dbc8d35b4b.gif"/>
+                    </div>
+                    <div class="cardImg__right ps-4 position-relative col-7">
+                        <div class="cardImg__right-account my-2">
+                            <img  src="https://i.pinimg.com/originals/5e/c0/76/5ec076ba64c5a1017b5b35dbc8d35b4b.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                            <span class="cardImg__right-account__name ms-2 fw-bold">Hieu Nguyen</span>
+                        </div>
+                        <div class="cardImg__right-heading text-dark fw-bold ">
+                            Hello World 3!!!!
+                        </div>
+                        <div class="cardImg__right-text mt-2">
+                            I’ve been having a problem with my computer. I know you’re an engineer so I thought you might be able to help me.
+                        </div>
+                        <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
+                            <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
+                                <i class="heart-icon fa-solid fa-heart"></i>
+                                <span class="heart-amount">100</span>
+                            </label>
+                            <input id="checkHeart" type="checkbox" class="d-none"/>
+                            <span class="cardImg__right-footer__time">9:28AM 20/06/2023</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cardImg col-xxl-6 col-12" >
+            <div class="cardImgBorder">
+                <div class="row h-100 w-100 no-margin">
+                    <div class="cardImg__left  h-100 m-0 p-0 col-5" data-bs-target="#myModal" data-bs-toggle="modal">
+                        <img class="cardIMg__left-img h-100 w-100" alt="" src="https://i.pinimg.com/564x/c7/87/de/c787de5392acb6632ac915398b3a3e12.jpg"/>
+                    </div>
+                    <div class="cardImg__right ps-4 position-relative col-7">
+                        <div class="cardImg__right-account my-2">
+                            <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                            <span class="cardImg__right-account__name ms-2 fw-bold">Hieu Nguyen</span>
+                        </div>
+                        <div class="cardImg__right-heading text-dark fw-bold ">
+                            Hello World 4!!!!
+                        </div>
+                        <div class="cardImg__right-text mt-2">
+                            I’ve been having a problem with my computer. I know you’re an engineer so I thought you might be able to help me.
+                        </div>
+                        <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
+                            <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
+                                <i class="heart-icon fa-solid fa-heart"></i>
+                                <span class="heart-amount">100</span>
+                            </label>
+                            <input id="checkHeart" type="checkbox" class="d-none"/>
+                            <span class="cardImg__right-footer__time">9:28AM 20/06/2023</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="contentFoto__footer mt-3 d-flex justify-content-center">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item" aria-current="page">
+                <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

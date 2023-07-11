@@ -1,0 +1,29 @@
+<div class="cardImg col-xxl-6 col-12" >
+    <div class="cardImgBorder ">
+        <div class="row h-100 w-100 no-margin">
+            <div class="cardImg__left h-100 m-0 p-0 col-5" data-bs-target="#myModal" data-bs-toggle="modal"> 
+                <%= image_tag(photo.source.url,class:'cardIMg__left-img h-100 w-100') %>
+            </div>
+            <div class="cardImg__right ps-4 position-relative col-7">
+                <div class="cardImg__right-account my-2">
+                    <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                    <span class="cardImg__right-account__name ms-2 fw-bold"><%= user.fullname %></span>
+                </div>
+                <div class="cardImg__right-heading text-dark fw-bold ">
+                    <%= photo.title %>
+                </div>
+                <div class="cardImg__right-text mt-2">
+                    <%= photo.description %>
+                </div>
+                <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
+                    <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
+                        <i class="heart-icon fa-solid fa-heart"></i>
+                    </label>
+                    <input id="checkHeart" type="checkbox" class="d-none"/>
+                    <span class="cardImg__right-footer__time"><%= photo.created_at %></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
