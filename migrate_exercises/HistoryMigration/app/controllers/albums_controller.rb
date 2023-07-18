@@ -9,6 +9,7 @@ class AlbumsController < ApplicationController
 
     def create
         @album= current_user.albums.new(album_params)
+        #render :json => params
         respond_to do |format|
             format.html do
                 if @album.save
@@ -30,6 +31,7 @@ class AlbumsController < ApplicationController
 
     def update
         @album = Album.find(params[:id])
+        # render :json => params
         respond_to do |format|
             format.html do
               if @album.update(album_params)
@@ -56,9 +58,58 @@ class AlbumsController < ApplicationController
         redirect_to  profile_url(current_user)
     end
 
+    def like
+
+        @album = Album.find(params[:id])
+        list_like = @album.list_like
+
+
+        is_like= params[:is_like]
+        if is_like == "true" and !list_like.include?(current_user.id)
+            list_like.push(current_user.id)  
+        elsif is_like == "false" and list_like.include?(current_user.id)
+            list_like.delete(current_user.id)
+        end
+
+        @album.update(list_like: list_like)
+        update_like_count(@album, is_like)
+
+    end
+
+
     private
 
+    def update_like_count(album,is_like)
+        
+
+        if is_like == 'true'
+            render turbo_stream:
+                turbo_stream.replace("like_count_album_#{album.id}",
+                    inline:  "
+                    <%= turbo_frame_tag 'dislike_count_album_#{album.id}' do %>
+                        <%= button_to like_album_path(#{album.id}, 'false'),class: 'cardImg__right-footer__btn border-0 bg-transparent' do %>
+                            <i class='heart-icon like fa-solid fa-heart'></i>
+                            <span>#{album.list_like.size}</span>
+                        <%end%>
+                    <%end%>
+                    
+                    " )
+        elsif is_like =='false'
+            render turbo_stream:
+                turbo_stream.replace("dislike_count_album_#{album.id}",
+                    inline:  "
+                    <%= turbo_frame_tag 'like_count_album_#{album.id}' do %>
+                        <%= button_to like_album_path(#{album.id},'true'),class: 'cardImg__right-footer__btn border-0 bg-transparent' do %>
+                            <i class='heart-icon dislike fa-solid fa-heart'></i>
+                            <span>#{album.list_like.size}</span>
+                        <%end%>
+                    <%end%>
+                    " ) 
+        end
+    end
+
+
     def album_params
-        params.require(:album).permit(:title, :description, :mode, {list_image: []})
+        params.require(:album).permit(:title, :description, :mode, {list_image: []}, {list_like: []})
     end
 end

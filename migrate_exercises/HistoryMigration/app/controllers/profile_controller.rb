@@ -85,19 +85,3 @@ class CardUser
     end
 end
 
-
-# @list_id_follower.each do |ele|
-#     @user = User.find_by id: ele
-#     name = @user.fullname
-#     avatar = '' # after fixing
-#     count_photo = @user.photos.size
-#     count_album = @user.albums.size
-
-#     if @list_id_following.include?(ele)
-#         is_follow= true
-#     else 
-#         is_follow = false
-#     end
-
-#     @list_follower.push CardUser.new(name, avatar, count_photo,count_album, is_follow)
-# end
