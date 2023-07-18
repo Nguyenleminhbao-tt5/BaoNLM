@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_040029) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_14_033121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_040029) do
     t.bigint "user_id", null: false
     t.integer "mode", default: 0
     t.string "list_image"
+    t.integer "list_like", default: [], array: true
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
@@ -49,13 +50,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_040029) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.integer "mode", default: 0
+    t.integer "list_like", default: [], array: true
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_type"
+    t.integer "user_type", default: 1
     t.string "fullname"
-    t.decimal "age"
+    t.integer "age"
     t.string "sex", default: "female"
     t.datetime "DoB"
     t.datetime "created_at", null: false
@@ -68,6 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_040029) do
     t.datetime "remember_created_at"
     t.string "fname"
     t.string "lname"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
