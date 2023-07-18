@@ -45,10 +45,24 @@ textarea {
     width: 200px;
     border: 2px dashed rgb(133, 129, 129);
     cursor: pointer;
+    position: relative;
+}
+.newPhoto_fileInput{
+    background-color: rgb(225, 230, 235);
+    height: 200px;
+    width: 200px;
+    border: 2px dashed rgb(133, 129, 129);
+    cursor: pointer;
+    position: relative;
 }
 .newPhoto_file-icon{
     font-size: 40px;
     color: rgb(133, 129, 129);
+}
+.newPhoto_btn{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .newPhoto__delete{
     margin-left: 40px;
@@ -75,7 +89,7 @@ textarea {
 .editProfile__img-change{
     position: absolute;
     bottom: 15px;
-    left: 70px;
+    left: calc(100%/2 - 75px/2);
     border: none;
     display: none;
     background-color: rgb(207, 204, 199);

@@ -53,9 +53,16 @@
 .cardImg__right-footer__btn{
     cursor: pointer;
     font-size: 19px;
-    color: var(--primary-color);
-   
+    color: var(--primary-color); 
 }
+.like{
+    color: var(--primary-color); 
+}
+.dislike{
+    color: #d4cfcf;
+}
+
+
 .cardImg__right-footer__time{
     color:#4d4a4a;
 }
@@ -68,7 +75,6 @@
 /*===================CARD-IMG-PROFILE=======================*/
 .cardImgProfile{
     margin: 10px 0;
-   
 }
 
 .cardImgProfile__img{
@@ -175,4 +181,24 @@
     color: var(--primary-color);
 }
 
+/*===================CARD-PHOTO-ADMIN=======================*/
 
+.cardImgProfile{
+    margin: 10px 0;
+}
+.cardPhotoAdmin__heading{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    height: 40px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.cardPhotoAdmin__heading-title{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
