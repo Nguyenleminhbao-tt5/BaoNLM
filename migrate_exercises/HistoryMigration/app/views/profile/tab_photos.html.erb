@@ -6,9 +6,9 @@
         <div class="row">
             <% @list_photo.each do |ele| %>
                 <% if @infors[0] == current_user %>
-                    <%= render "components/card_img_profile", photo: ele%>
+                    <%= render "components/card_img_profile",user: @infors[0], photo: ele%>
                 <% elsif ele.mode == 'Public' %>
-                    <%= render "components/card_img_profile", photo: ele%>
+                    <%= render "components/card_img_profile",user:@infors[0],  photo: ele%>
                 <%end%>
             <%end%>
         </div>

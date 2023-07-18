@@ -5,7 +5,11 @@
     <div class="contentProfile__bot">
         <div class="row">
             <% @list_album.each do |ele| %>
-                <%= render "components/card_album_profile", album: ele%>
+                <% if @infors[0] == current_user %>
+                    <%= render "components/card_album_profile", user: @infors[0] , album: ele%>
+                <% elsif ele.mode == 'Public' %>
+                    <%= render "components/card_album_profile", user: @infors[0] , album: ele%>
+                <%end%>
             <%end%>
         </div>
     </div>

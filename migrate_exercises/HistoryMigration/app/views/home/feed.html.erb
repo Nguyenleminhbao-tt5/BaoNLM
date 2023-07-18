@@ -1,31 +1,32 @@
 
 <div class="contentFoto col-xl-2 col-xl-8 col-md-9">
     <div class="contentFoto__heading mb-2 d-flex justify-content-center">
-        <div class="btn-group contentFoto__heading-group " role="group" aria-label="Basic radio toggle button group">
+        <div class="btn-group contentFoto__heading-group " role="group" aria-label="Basic radio toggle button group" data-controller = 'toggle' data-photo-checked='<%= params[:category] %>'>
             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-            <label class="btn btn-outline-primary btn-Photo" for="btnradio1">
-                <%= link_to 'Photo', root_path , class: 'text-decoration-none'%>
+            <label class="btn btn-outline-primary btn-Photo" for="btnradio1" >
+                <%= link_to 'Photo', root_path , class: 'text-decoration-none py-3'%>
             </label>
             
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"  >
             <label class="btn btn-outline-primary btn-Album" for="btnradio2">
-                 <%= link_to 'Album', home_feed_path('album') , class: 'text-decoration-none'%>
+                <%= link_to 'Album', home_feed_path('album') , class: 'text-decoration-none py-3'%>
             </label>
         </div>
     </div>
-    <div class="row contentFoto__body d-flex justify-content-center">
-        <h1><%= params['category'] %></h1>
+    <div class="row contentFoto__body d-flex justify-content-center" data-controller ="show" >
         <% if user_signed_in? %>
             <% if params[:category] == nil or params[:category] == 'photo' %>
                 <% @list_photo.each do |ele|%>
                     <% if ele[1].mode== 'Public' %>
-                        <%= render 'components/card_img',user: ele[0], photo: ele[1]%>
+                        <% is_like = ele[1].list_like.include?(current_user.id) %>
+                        <%= render 'components/card_img',user: ele[0], photo: ele[1], is_like: is_like %>
                     <%end%>
                 <%end%>
             <%elsif params[:category] == 'album' %>
                 <% @list_album.each do |ele| %>
                     <% if ele[1].mode== 'Public' %>
-                        <%= render 'components/card_album',user: ele[0], album: ele[1]%>
+                        <% is_like = ele[1].list_like.include?(current_user.id) %>
+                        <%= render 'components/card_album',user: ele[0], album: ele[1], is_like: is_like %>
                     <%end%>
                 <%end%>
             <%end%>

@@ -32,19 +32,24 @@
         </div>
 
         <% if @album.list_image.present? %>
-            <div class="d-flex">
+            <div class="listFileAlbum d-flex"  data-controller="change" >
                 <% @album.list_image.each  do |photo| %>
-                    <label class="newPhoto_file d-flex justify-content-center align-items-center my-4 me-3" >
+                    <div class="newPhoto_file d-flex justify-content-center align-items-center my-4 me-3" >
                         <%= image_tag(photo.url,class:'h-100 w-100') %>
-                    </label>
-                    
+                        <button class="newPhoto_btn" type="button"  data-controller="delete" data-action="click->delete#deletePhoto" data-delete-file-name-param= "<%= photo.file.filename%>" >
+                            <i class="newPhoto_delete-icon fa-solid fa-x"></i>
+                        </button>
+                        <%= hidden_field :album, :list_image, multiple: true, value: photo.identifier %>
+                    </div>
+                 
                 <%end%>
-                    <label class="newPhoto_file d-flex justify-content-center align-items-center my-4" for="newPhoto_inputPhoto">
-                            <i class="newPhoto_file-icon fa-regular fa-image"></i>
+                    <label class="newPhoto_fileInput d-flex justify-content-center align-items-center my-4 me-3" for="newAlbum_inputPhoto"  >
+                        <i class="newPhoto_file-icon fa-regular fa-image"></i>
                     </label>
             </div>
         <%end%>
-        <%= f.file_field :source , class:'d-none', id: 'newPhoto_inputPhoto' %>
+        <input type="file" id="newAlbum_inputPhoto" class="d-none" multiple />
+        <%= f.file_field :list_image, multiple: true, class: 'd-none', id: 'fileInput' %>
 
 
         <div class="newPhoto__btn">

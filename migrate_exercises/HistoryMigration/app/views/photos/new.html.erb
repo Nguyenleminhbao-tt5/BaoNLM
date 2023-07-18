@@ -29,12 +29,9 @@
                 
             </div>    
         </div>
-        <label class="newPhoto_file d-flex justify-content-center align-items-center my-4" for="newPhoto_inputPhoto">
-            <% if @photo.source.present? %>
-                <%= image_tag(@photo.source.url,class:'h-100 w-100') %>
-            <%else%>
+        <label class="newPhoto_file d-flex justify-content-center align-items-center my-4" for="newPhoto_inputPhoto" data-controller="change">
+                <img src="" class="h-100 w-100 newPhoto_file-image d-none" alt=""/>
                 <i class="newPhoto_file-icon fa-regular fa-image"></i>
-            <%end%>
         </label>
         <%= f.file_field :source , class:'d-none', id: 'newPhoto_inputPhoto' %>
         <%= f.submit 'Save', class: 'btn newPhoto__submit btn-success' %>

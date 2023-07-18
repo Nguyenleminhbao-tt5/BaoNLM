@@ -1,7 +1,11 @@
 
 <div class="d-flex align-items-center">
     <div class="contentProfile__top-avatar">
-        <img class="profileTopAvatar__img w-100 h-100 rounded-circle" src="https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg" alt=""/>
+        <% if current_user.avatar.present? %> 
+            <%= image_tag(current_user.avatar.url, class: 'profileTopAvatar__img w-100 h-100 rounded-circle')  %>
+        <%else%>
+            <img class="profileTopAvatar__img w-100 h-100 rounded-circle" src="https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg" alt=""/>
+        <%end%>
     </div>
     <div class="contentProfile__top-infor w-75 ms-4 d-flex flex-column justify-content-start position-relative">
         <% if current_user == @infors[0] %>
@@ -10,7 +14,7 @@
             <span class="profileTopInfor__status">following</span>
         <%end%>
         <h1 class="profileTopInfor__name mt-3"><%= @infors[0].fullname %></h1>
-        <div class="profileTopInfor__list d-flex list-unstyled align-items-center">
+        <div class="profileTopInfor__list d-flex list-unstyled align-items-center" data-controller="toggle" data-toggle-profile="<%= params[:action] %>">
             <%= link_to profile_path(@infors[0]) , class:'profileTopInfor__list-item ele-active text-decoration-none' do%>
                 <span class="profileTopInfor__list-item__amount"><%= @infors[1] %></span>
                 <span class="profileTopInfor__list-item__cate">PHOTOS</span>

@@ -1,13 +1,21 @@
  <header class="header fixed-top d-flex align-items-center justify-content-between ">
     <div class="header__left d-flex align-items-center ">
-        <%= link_to 'Fotobook', root_path, class: 'header__left-logo text-white fw-bold text-decoration-none' %>
+        <% if current_user.user_type =="admin" %>
+            <%= link_to 'Fotobook Admin', root_path, class: 'header__left-logo text-white fw-bold text-decoration-none' %>
+        <%else%>
+            <%= link_to 'Fotobook', root_path, class: 'header__left-logo text-white fw-bold text-decoration-none' %>
+        <%end%>
         <input class="header__left-search" placeholder="Search Photo / Album">
     </div>
     <div class="header__right d-flex align-items-center ">
         <% if user_signed_in? %>
             <div class="header__right-account d-flex align-items-center d-none d-sm-flex ">
                 <%= link_to profile_path(current_user) do%>
-                    <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="headerRightAccount__avatar rounded-circle "/>
+                    <% if current_user.avatar.present? %> 
+                        <%= image_tag(current_user.avatar.url, class: 'headerRightAccount__avatar rounded-circle')  %>
+                    <%else%>
+                        <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="headerRightAccount__avatar rounded-circle "/>
+                    <%end%>
                 <%end%>
                 <span class="headerRightAccount__name text-white fw-bold"><%= current_user.fullname %></span>
             </div>

@@ -5,7 +5,7 @@
     <div class="contentProfile__bot">
         <div class="row">
             <% @list_follower.each do |ele| %>
-                <%= render "components/card_follow_profile", user: ele %>
+                <%= render "components/card_follow_profile",user_self:@user, user: ele %>
             <%end%>
         </div>
     </div>

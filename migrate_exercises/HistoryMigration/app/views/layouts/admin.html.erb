@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>    
+    <div class="main">
+      <% if user_signed_in? %>
+        <%= render 'shared/header'%>
+      <%else%>
+        <%= render 'shared/header_authen'%>
+      <%end%>
+
+      <div class="content bg-white">
+        <div class="container-fluid h-100">
+          <div class="row h-100">
+            <div class="sidebarLeft h-100 col-xl-2 col-md-3 d-none d-md-block ">
+            <ul class="sidebarLeft__list list-unstyled d-flex align-items-center flex-column justify-content-start mt-4" data-controller="toggle" data-left-sidebar="<%= params[:action]%>"  >
+                <li class="sidebarLeft__list-item float-start "  >
+                    <%= link_to 'Manage Photos', root_path, class:'sidebarLeftListItem__link  text-decoration-none fw-bold' %>
+                </li>
+                <li class="sidebarLeft__list-item float-start "  >
+                    <%= link_to 'Manage Albums', root_path, class:'sidebarLeftListItem__link  text-decoration-none fw-bold' %>
+                </li>
+                <li class="sidebarLeft__list-item float-start">
+                    <%= link_to 'Manage Users', home_discover_path('photo'), class: 'sidebarLeftListItem__link active text-decoration-none fw-bold' %>
+                </li>
+            </ul>
+            </div>
+            
+            <%= yield %>
+            <div class="sidebarRight h-100 d-none d-xl-block col-xl-2">
+            </div>
+
+          </div>
+        </div>
+       
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
