@@ -1,13 +1,26 @@
-<div class="cardImg col-xxl-6 col-12" >
+<div class="cardImg col-xxl-6 col-12"   >
     <div class="cardImgBorder ">
         <div class="row h-100 w-100 no-margin">
-            <div class="cardImg__left h-100 m-0 p-0 col-5" data-bs-target="#myModal" data-bs-toggle="modal"> 
+            <div class="cardImg__left h-100 m-0 p-0 col-5" data-bs-target="#myModal" data-bs-toggle="modal"  > 
                 <%= image_tag(photo.source.url,class:'cardIMg__left-img h-100 w-100') %>
             </div>
             <div class="cardImg__right ps-4 position-relative col-7">
                 <div class="cardImg__right-account my-2">
-                    <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
-                    <span class="cardImg__right-account__name ms-2 fw-bold"><%= user.fullname %></span>
+                    <%= link_to profile_path(user), class: 'text-decoration-none' do  %>
+                        <% if user.avatar.present? %> 
+                            <%= image_tag(user.avatar.url, class: 'cardImg__right-account__avatar rounded-circle' )  %>
+                        <%else%>
+                        <%= image_tag('data:image/jpeg;base64,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', class: 'cardImg__right-account__avatar rounded-circle') %>
+                        <%end%>
+                        <span class="cardImg__right-account__name ms-2 fw-bold"><%= user.fullname %></span>
+                    <%end%>
+                    
+
+                    <% if params[:action]== 'discover' && is_follow %>
+                        <button class="cardFollow__btn-following">following</button>
+                    <%elsif params[:action]== 'discover' && !is_follow %>
+                        <%= button_to 'follow', follows_path(user,'falsePhoto'),method: :post , class: 'cardFollow__btn-follow  text-center' %>
+                    <%end%>
                 </div>
                 <div class="cardImg__right-heading text-dark fw-bold ">
                     <%= photo.title %>
@@ -15,15 +28,27 @@
                 <div class="cardImg__right-text mt-2">
                     <%= photo.description %>
                 </div>
-                <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
-                    <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
-                        <i class="heart-icon fa-solid fa-heart"></i>
-                    </label>
-                    <input id="checkHeart" type="checkbox" class="d-none"/>
+                <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between" >
+                    <% if !is_like %>
+                        <%= turbo_frame_tag "like_count_photo_#{photo.id}" do %>
+                            <%= button_to like_photo_path(photo,'true'),class: 'cardImg__right-footer__btn border-0 bg-transparent ' do %>
+                                <i class="heart-icon dislike fa-solid fa-heart "></i>
+                                <span><%= photo.list_like.size %></span>
+                            <%end%>
+                        <%end%>
+                    <%else%>
+                        <%= turbo_frame_tag "dislike_count_photo_#{photo.id}" do %>
+                            <%= button_to like_photo_path(photo,'false'), class: 'cardImg__right-footer__btn border-0 bg-transparent' do %>
+                                <i class="heart-icon like fa-solid fa-heart"></i>
+                                <span><%= photo.list_like.size %></span>
+                            <%end%>
+                        <%end%>
+                    <%end%>
                     <span class="cardImg__right-footer__time"><%= photo.created_at %></span>
-
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
+

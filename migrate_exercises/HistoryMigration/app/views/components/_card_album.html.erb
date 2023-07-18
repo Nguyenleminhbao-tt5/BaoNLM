@@ -6,9 +6,23 @@
             </div>
             <div class="cardImg__right ps-4 position-relative col-7">
                 <div class="cardImg__right-account my-2">
-                    <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                    <% if user.avatar.present? %> 
+                        <%= image_tag(user.avatar.url, class: 'cardImg__right-account__avatar rounded-circle')  %>
+                    <%else%>
+                       <img  src="https://i.pinimg.com/originals/aa/be/6d/aabe6d6db5e5f569e69e56e851eba8f0.gif" alt="" class="cardImg__right-account__avatar rounded-circle "/>
+                    <%end%>
                     <span class="cardImg__right-account__name ms-2 fw-bold"><%= user.fullname %></span>
                 </div>
+
+                <% if params[:action]== 'discover' && is_follow %>
+                    <button class="cardFollow__btn-following">following</button>
+                <%elsif params[:action]== 'discover' && !is_follow %>
+                    <%= button_to 'follow', follows_path(user,'falseAlbum'),method: :post , class: 'cardFollow__btn-follow  text-center' %>
+                <%end%>
+
+
+
+
                 <div class="cardImg__right-heading text-dark fw-bold ">
                     <%= album.title %>
                 </div>
@@ -16,10 +30,21 @@
                     <%= album.description %>
                 </div>
                 <div class="cardImg__right-footer position-absolute bottom-0 d-flex align-items-center justify-content-between">
-                    <label class="cardImg__right-footer__btn border-0 bg-transparent" for="checkHeart">
-                        <i class="heart-icon fa-solid fa-heart"></i>
-                    </label>
-                    <input id="checkHeart" type="checkbox" class="d-none"/>
+                   <% if !is_like %>
+                        <%= turbo_frame_tag "like_count_album_#{album.id}" do %>
+                            <%= button_to like_album_path(album,'true'),class: 'cardImg__right-footer__btn border-0 bg-transparent ' do %>
+                                <i class="heart-icon dislike fa-solid fa-heart "></i>
+                                <span><%= album.list_like.size %></span>
+                            <%end%>
+                        <%end%>
+                    <%else%>
+                        <%= turbo_frame_tag "dislike_count_album_#{album.id}" do %>
+                            <%= button_to like_album_path(album,'false'), class: 'cardImg__right-footer__btn border-0 bg-transparent' do %>
+                                <i class="heart-icon like fa-solid fa-heart"></i>
+                                <span><%= album.list_like.size %></span>
+                            <%end%>
+                        <%end%>
+                    <%end%>
                     <span class="cardImg__right-footer__time"><%= album.created_at %></span>
 
                 </div>
